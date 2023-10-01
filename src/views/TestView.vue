@@ -71,7 +71,7 @@ export default {
       this.isLoad = true
       try {
         await axios.post(
-            `http://localhost:3000/api/v1/finishTest`,
+            `${process.env.VUE_APP_SERVER}`,
             {
               result: this.results
             }
