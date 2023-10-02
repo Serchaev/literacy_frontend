@@ -250,6 +250,7 @@ export default {
   border-radius: 15px;
   border: 4px solid rgba(158, 192, 157, 0.35);
   background: #FFF;
+  color: black;
 
   font-size: 20px;
   font-weight: 500;
