@@ -197,6 +197,7 @@ export default {
 .question__theme{
   font-size: 20px;
   font-weight: 500;
+  color: #283128;
 }
 .question__number{
   font-size: 20px;
