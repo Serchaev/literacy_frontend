@@ -100,7 +100,7 @@ export default {
           </div>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://fincult.info/upload/iblock/4a7/4a73954b7741edce75997b8ddfcae6b4.pdf" class="desk_base d-block">Инфляция: что это такое и от чего она зависит</a>
+            <a href="https://fincult.info/article/chto-takoe-inflyatsiya-i-otkuda-ona-beretsya/" class="desk_base d-block">Инфляция: почему растут цены и кто может их сдержать</a>
           </div>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
@@ -116,7 +116,7 @@ export default {
           </div>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://fincult.info/upload/iblock/5fc/5fccba43e8498947632e3ef67f91e297.pdf" class="desk_base d-block">Все о курсе валют</a>
+            <a href="https://fincult.info/article/kurs-valyut-chto-takoe-plavayushchiy-kurs/" class="desk_base d-block">Курс валют: что такое плавающий курс</a>
           </div>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
@@ -124,7 +124,7 @@ export default {
           </div>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://fincult.info/upload/iblock/4a7/4a73954b7741edce75997b8ddfcae6b4.pdf" class="desk_base d-block">Инфляция: что это такое и от чего она зависит</a>
+            <a href="https://fincult.info/article/chto-takoe-inflyatsiya-i-otkuda-ona-beretsya/" class="desk_base d-block">Инфляция: почему растут цены и кто может их сдержать</a>
           </div>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
@@ -136,7 +136,7 @@ export default {
         <div class="hrefs" v-else>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://fincult.info/upload/iblock/326/326d08f23ba151d0c9ad0fff1cd88af1.pdf" class="desk_base d-block">Кредиты и займы, какие они бывают</a>
+            <a href="https://fincult.info/teaching/kredity-i-zaymy-kakie-oni-byvayut/" class="desk_base d-block">Кредиты и займы, какие они бывают</a>
           </div>
           <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
