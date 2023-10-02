@@ -298,7 +298,8 @@ export default {
     line-height: 12px;
   }
   .question__theme{
-    font-size: 12px;
+    font-size: 13px;
+    line-height: 13px;
   }
   .question__number{
     font-size: 12px;
