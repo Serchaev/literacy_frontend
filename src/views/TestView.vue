@@ -112,8 +112,13 @@ export default {
               <img src="@/assets/circle.svg" alt="">
               <span>{{ this.question['block'] }} Блок</span>
           </div>
-          <div class="question__number offset-1 col-11">
-            <span>Вопрос {{this.viewNumberQuestion}}/3</span>
+          <div class="row mt-lg-4">
+            <div class="question__theme offset-1 col-lg-8 col-7">
+              {{ this.question['theme'] }}
+            </div>
+            <div class="question__number offset-1 col-lg-2 col-3">
+              <span>Вопрос {{this.viewNumberQuestion}}/3</span>
+            </div>
           </div>
           <div class="question__text offset-1 col-lg-8 col-10 mt-4">
             {{this.question['text']}}
@@ -189,6 +194,10 @@ export default {
   line-height: 20px;
   text-transform: uppercase;
 }
+.question__theme{
+  font-size: 20px;
+  font-weight: 500;
+}
 .question__number{
   font-size: 20px;
   color: #283128;
@@ -204,6 +213,9 @@ export default {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+.question__animal img{
+  width: 300px;
 }
 .answers{
   padding-top: 70px;
@@ -285,8 +297,11 @@ export default {
     font-size: 12px;
     line-height: 12px;
   }
+  .question__theme{
+    font-size: 12px;
+  }
   .question__number{
-    font-size: 15px;
+    font-size: 12px;
   }
   .question__text{
     font-size: 18px;
