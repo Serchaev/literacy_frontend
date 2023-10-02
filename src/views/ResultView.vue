@@ -27,7 +27,7 @@ export default {
 </script>
 
 <template>
-  <div class="results">
+  <div class="results pb-5 mb-5">
     <div class="green">
       <div class="container">
         <img src="@/assets/result_green_img.png" alt="" class="result_green_img">
@@ -59,24 +59,104 @@ export default {
       <div class="container_left">
         <h3 class="desk_h3">Желаете повысить свои знания в теме финансовой грамотности?</h3>
         <p class="desk_base d-block">Советуем посетить следующие источники:</p>
-        <div class="hrefs">
-          <div class="hrefs_item">
+
+
+        <div class="hrefs" v-if="this.percents<25">
+          <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://моифинансы.рф/" class="desk_base d-block">https://моифинансы.рф/</a>
+            <a href="https://fincult.info/upload/iblock/ff6/ff6152774da48d2b2e3d22d0f4a28a34.pdf" class="desk_base d-block">Зачем быть финансово грамотным?</a>
           </div>
-          <div class="hrefs_item">
+          <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://fincult.info/" class="desk_base d-block">https://fincult.info/</a>
+            <a href="https://fincult.info/upload/iblock/a37/a373cee8527ec96d8c092c42c0a81e6f.pdf" class="desk_base d-block">Мой первый финансовый план, как подростку накопить на мечту</a>
           </div>
-          <div class="hrefs_item">
+          <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://rsue.ru/" class="desk_base d-block">https://rsue.ru/</a>
+            <a href="https://fincult.info/upload/iblock/154/CB_Brochure_Money_internet.pdf" class="desk_base d-block">Деньги: откуда они берутся и кто их контролирует</a>
           </div>
-          <div class="hrefs_item">
+          <div class="hrefs_item mt-2">
             <img src="@/assets/hrefs_item_img.png" alt="">
-            <a href="https://rsue.ru/universitet/" class="desk_base d-block">https://rsue.ru/universitet/</a>
+            <a href="https://моифинансы.рф/article/chto-takoe-inflyaciya-i-kak-zashitit-ot-nee-svoi-dengi/" class="desk_base d-block">Что такое инфляция и как защитить от нее свои деньги</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/landing/guide/" class="desk_base d-block">Учебник по финансовой грамотности</a>
           </div>
         </div>
+
+
+        <div class="hrefs" v-else-if="this.percents<50">
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://fincult.info/upload/iblock/ff6/ff6152774da48d2b2e3d22d0f4a28a34.pdf" class="desk_base d-block">Зачем быть финансово грамотным?</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/article/15-voprosov-dlya-proverki-finansovoj-gramotnosti/" class="desk_base d-block">15 важных вопросов для проверки финансовой грамотности</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://fincult.info/upload/iblock/154/CB_Brochure_Money_internet.pdf" class="desk_base d-block">Деньги: откуда они берутся и кто их контролирует</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://fincult.info/upload/iblock/4a7/4a73954b7741edce75997b8ddfcae6b4.pdf" class="desk_base d-block">Инфляция: что это такое и от чего она зависит</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/landing/guide/" class="desk_base d-block">Учебник по финансовой грамотности</a>
+          </div>
+        </div>
+
+
+        <div class="hrefs" v-else-if="this.percents<75">
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/article/15-voprosov-dlya-proverki-finansovoj-gramotnosti/" class="desk_base d-block">15 важных вопросов для проверки финансовой грамотности</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://fincult.info/upload/iblock/5fc/5fccba43e8498947632e3ef67f91e297.pdf" class="desk_base d-block">Все о курсе валют</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/article/bankovskij-vklad-nakopitelnyj-schet-i-karty-s-procentom-na-ostatok:-v-chem-raznica/" class="desk_base d-block">Банковский вклад, накопительный счет и карты с процентом на остаток: в чем разница?</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://fincult.info/upload/iblock/4a7/4a73954b7741edce75997b8ddfcae6b4.pdf" class="desk_base d-block">Инфляция: что это такое и от чего она зависит</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/landing/guide/" class="desk_base d-block">Учебник по финансовой грамотности</a>
+          </div>
+        </div>
+
+
+        <div class="hrefs" v-else>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://fincult.info/upload/iblock/326/326d08f23ba151d0c9ad0fff1cd88af1.pdf" class="desk_base d-block">Кредиты и займы, какие они бывают</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://fincult.info/upload/iblock/088/CBR_Presentation_new_investor.pdf" class="desk_base d-block">Начинающий инвестор: что нужно знать о торговле на бирже</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/article/slozhnyj-procent-v-nakopleniyah:-kak-eto-rabotaet/" class="desk_base d-block">Сложный процент в накоплениях: как это работает</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/landing/wheel_life/" class="desk_base d-block">Трекер финансового здоровья</a>
+          </div>
+          <div class="hrefs_item mt-2">
+            <img src="@/assets/hrefs_item_img.png" alt="">
+            <a href="https://моифинансы.рф/landing/guide/" class="desk_base d-block">Учебник по финансовой грамотности</a>
+          </div>
+        </div>
+
+
       </div>
       <div class="container_right">
         <img src="@/assets/container_right_img.png" alt="">

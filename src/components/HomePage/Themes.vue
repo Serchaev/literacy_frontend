@@ -7,7 +7,7 @@ export default {
 <template>
   <section class="themes mt-5 pt-5 pb-5">
     <div class="container">
-      <div class="themes__title offset-xxl-3 col-xxl-6 offset-lg-2 col-lg-8 offset-1 col-10">
+      <div id="about" class="themes__title offset-xxl-3 col-xxl-6 offset-lg-2 col-lg-8 offset-1 col-10">
         Вас ждут вопросы по темам:
       </div>
       <div class="row">

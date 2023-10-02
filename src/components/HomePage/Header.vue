@@ -12,15 +12,16 @@ export default {
           <img src="@/assets/brand.png" alt="">
         </div>
         <div class="header__menu offset-xxl-5 col-xxl-4 offset-lg-4 col-lg-5 d-none d-lg-flex justify-content-between align-items-center">
-          <div>Об игре</div>
+          <div><a class="header__link" href="#about">Об игре</a></div>
+          <div>
+            <img src="@/assets/menu4.png" alt="">
+          </div>
           <div>
             <img src="@/assets/menu1.png" alt="">
           </div>
           <div>
+<!--            <img src="@/assets/menu3.png" alt="">-->
             <img src="@/assets/menu2.png" alt="">
-          </div>
-          <div>
-            <img src="@/assets/menu3.png" alt="">
           </div>
           <div>
             <button class="header__btn" @click="this.$router.push('/test')">Играть</button>
@@ -44,5 +45,9 @@ export default {
   font-size: 20px;
   font-weight: 500;
   padding: 7px 35px;
+}
+.header__link{
+  color: black;
+  text-decoration: none;
 }
 </style>
