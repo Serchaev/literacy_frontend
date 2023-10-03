@@ -39,15 +39,15 @@
           <p class="mt-md-3 mt-sm-2 text-start text-lg-end">Деятельность министерства финансов РО направлена на обеспечение финансовой стабильности в регионе через эффективное и бережное управление государственными финансами, развитие, обеспечение стабильности и повышение надежности финансовой системы, а также выполнение функций нормативно-правового регулирования в финансовой, бюджетной и налоговой сферах.</p>
         </div>
       </div>
-      <div class="row organizer_content mt-4">
-        <div class="greeting_text col-lg-8 col-12 d-flex flex-column mt-md-4 mt-sm-3 ps-md-5 ps-sm-4">
-          <h3 class="mt-4">Ростовский государственный <br/> экономический университет (РИНХ)</h3>
-          <p class="mt-md-3 mt-sm-2">РГЭУ (РИНХ) - крупный многопрофильный образовательный и учебно-методический центр юга России, использующий новейшие методики и технологии обучения.</p>
-        </div>
-        <div class="col-lg-3 col-12 offset-lg-1 d-flex justify-content-lg-end align-items-lg-end justify-content-center align-items-center">
-          <img src="@/assets/organizer_img_rsue.png" class="img-fluid " alt="">
-        </div>
-      </div>
+<!--      <div class="row organizer_content mt-4">-->
+<!--        <div class="greeting_text col-lg-8 col-12 d-flex flex-column mt-md-4 mt-sm-3 ps-md-5 ps-sm-4">-->
+<!--          <h3 class="mt-4">Ростовский государственный <br/> экономический университет (РИНХ)</h3>-->
+<!--          <p class="mt-md-3 mt-sm-2">РГЭУ (РИНХ) - крупный многопрофильный образовательный и учебно-методический центр юга России, использующий новейшие методики и технологии обучения.</p>-->
+<!--        </div>-->
+<!--        <div class="col-lg-3 col-12 offset-lg-1 d-flex justify-content-lg-end align-items-lg-end justify-content-center align-items-center">-->
+<!--          <img src="@/assets/organizer_img_rsue.png" class="img-fluid " alt="">-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </section>
 </template>
