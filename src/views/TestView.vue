@@ -61,7 +61,7 @@ export default {
       this.viewNumberQuestion > 59 ? this.viewNumberQuestion = 1 : this.viewNumberQuestion += 1;
       if (this.numberQuestion > this.questions.length) {
         this.$emit('updateResult', this.results)
-        // await this.postResults();
+        await this.postResults();
         await router.push('/result')
         return null
       }
