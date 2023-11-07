@@ -1,13 +1,13 @@
 <script>
-import {TEST} from "@/test/test";
+import { TEST } from "@/test/test";
 import router from "@/router";
 import axios from "axios";
 import Loader from "@/components/Loader.vue";
 
 export default {
-  components: {Loader},
-  data(){
-    return{
+  components: { Loader },
+  data() {
+    return {
       questions: [],
       question: {},
       results: 0,
@@ -21,60 +21,60 @@ export default {
   },
   methods: {
     initQuestions() {
-      TEST.forEach(e=>{
+      TEST.forEach(e => {
         const categories = e['categories']
-        categories.forEach(elem=>{
+        categories.forEach(elem => {
           const questions = elem['questions']
-          questions.forEach(element=>{
+          questions.forEach(element => {
             element['block'] = e['block']
             element['category'] = elem['category']
           })
-          this.questions.push(questions[Math.floor(Math.random()*questions.length)])
+          this.questions.push(...questions)
         })
       })
     },
-    setQuestion(data){
+    setQuestion(data) {
       this.question = data
     },
-    checkCorrectAnswer(value){
-      if (this.question['block']===3){return value === this.question['correct_answer'] && this.humanAnswer.length !== 0}
+    checkCorrectAnswer(value) {
+      if (this.question['block'] === 3) { return value === this.question['correct_answer'] && this.humanAnswer.length !== 0 }
       return this.humanAnswer === value && this.humanAnswer === this.question['correct_answer']
     },
-    checkIncorrectAnswer(value){
-      if (this.question['block']===3){return value === this.humanAnswer && value !== this.question['correct_answer']}
+    checkIncorrectAnswer(value) {
+      if (this.question['block'] === 3) { return value === this.humanAnswer && value !== this.question['correct_answer'] }
       return this.humanAnswer !== value || this.humanAnswer !== this.question['correct_answer']
     },
-    checkDefaultAnswer(value){
-      if (this.question['block']===3){
+    checkDefaultAnswer(value) {
+      if (this.question['block'] === 3) {
         return false
       }
-      return this.humanAnswer !== value || this.humanAnswer.length===0
+      return this.humanAnswer !== value || this.humanAnswer.length === 0
     },
-    async nextQuestion(){
-      if (this.isCorrect){
+    async nextQuestion() {
+      if (this.isCorrect) {
         this.results += +this.question['category']
       }
       this.humanAnswer = "";
       this.isDisabled = false;
       this.isCorrect = true;
       this.numberQuestion += 1;
-      this.viewNumberQuestion > 2 ? this.viewNumberQuestion = 1 : this.viewNumberQuestion += 1;
+      this.viewNumberQuestion > 59 ? this.viewNumberQuestion = 1 : this.viewNumberQuestion += 1;
       if (this.numberQuestion > this.questions.length) {
         this.$emit('updateResult', this.results)
-        await this.postResults();
+        // await this.postResults();
         await router.push('/result')
         return null
       }
-      this.setQuestion(this.questions[this.numberQuestion-1])
+      this.setQuestion(this.questions[this.numberQuestion - 1])
     },
-    async postResults(){
+    async postResults() {
       this.isLoad = true
       try {
         await axios.post(
-            `${process.env.VUE_APP_SERVER}`,
-            {
-              result: this.results
-            }
+          `${process.env.VUE_APP_SERVER}`,
+          {
+            result: this.results
+          }
         );
       } catch (err) {
         alert("Error")
@@ -89,12 +89,12 @@ export default {
 
   },
   watch: {
-    humanAnswer(value){
+    humanAnswer(value) {
       if (value.length === 0) {
         return null
       }
       this.isDisabled = true;
-      if (value !== this.question['correct_answer']){
+      if (value !== this.question['correct_answer']) {
         this.isCorrect = false
       }
     }
@@ -109,19 +109,19 @@ export default {
       <div class="container">
         <div class="question">
           <div class="question__block">
-              <img src="@/assets/circle.svg" alt="">
-              <span>{{ this.question['block'] }} Блок</span>
+            <img src="@/assets/circle.svg" alt="">
+            <span>{{ this.question['block'] }} Блок</span>
           </div>
           <div class="row mt-lg-4">
             <div class="question__theme offset-1 col-lg-8 col-7">
               {{ this.question['theme'] }}
             </div>
             <div class="question__number offset-1 col-lg-2 col-3">
-              <span>Вопрос {{this.viewNumberQuestion}}/3</span>
+              <span>Вопрос {{ this.viewNumberQuestion }}/60</span>
             </div>
           </div>
           <div class="question__text offset-1 col-lg-8 col-10 mt-4">
-            {{this.question['text']}}
+            {{ this.question['text'] }}
           </div>
           <div class="question__animal">
             <img src="@/assets/лисица.png" alt="">
@@ -132,14 +132,18 @@ export default {
     <div class="answers">
       <div class="container">
         <div class="question__answers" v-for="(item, index) in this.question['answers']">
-          <input type="radio" :id="`${index}`" :name="`answer-${this.numberQuestion}`" :value="`${item}`" v-model="this.humanAnswer" :disabled="isDisabled"  />
-          <label class="test__answer col-12" :for="`${index}`" :class="{ incorrect_answer: this.checkIncorrectAnswer(item), default_answer: this.checkDefaultAnswer(item), correct_answer: this.checkCorrectAnswer(item) }">{{item}}</label>
+          <input type="radio" :id="`${index}`" :name="`answer-${this.numberQuestion}`" :value="`${item}`"
+            v-model="this.humanAnswer" :disabled="isDisabled" />
+          <label class="test__answer col-12" :for="`${index}`"
+            :class="{ incorrect_answer: this.checkIncorrectAnswer(item), default_answer: this.checkDefaultAnswer(item), correct_answer: this.checkCorrectAnswer(item) }">{{
+              item }}</label>
         </div>
         <div class="question__annotation offset-0 col-12 offset-lg-1 col-lg-10" v-if="!isCorrect">
-          {{this.question['annotation']}}
+          {{ this.question['annotation'] }}
         </div>
         <div v-if="this.isDisabled">
-          <button class="question__btn offset-lg-10 col-lg-2 offset-7 col-5 mt-5" @click="nextQuestion">{{ this.numberQuestion === this.questions.length ? "Завершить" : "Далее"}}</button>
+          <button class="question__btn offset-lg-10 col-lg-2 offset-7 col-5 mt-5" @click="nextQuestion">{{
+            this.numberQuestion === this.questions.length ? "Завершить" : "Далее" }}</button>
         </div>
       </div>
     </div>
@@ -148,12 +152,13 @@ export default {
 </template>
 
 <style scoped>
-.header{
+.header {
   padding-top: 50px;
   border-radius: 0 0 30px 30px;
   background: var(--Linear, linear-gradient(89deg, #BEF440 1.57%, #6DEF9E 99.46%));
 }
-.question{
+
+.question {
   padding-top: 56px;
   padding-bottom: 56px;
   position: relative;
@@ -163,7 +168,8 @@ export default {
   transform: translateY(20%);
   min-height: 350px;
 }
-.question__block{
+
+.question__block {
   position: absolute;
   transform: translateY(-50%);
   text-align: center;
@@ -175,12 +181,14 @@ export default {
   width: 160px;
   height: 160px;
 }
-.question__block img{
+
+.question__block img {
   display: block;
   min-width: 100%;
   margin: 0 auto;
 }
-.question__block span{
+
+.question__block span {
   position: absolute;
   top: 50%;
   left: 0;
@@ -194,38 +202,46 @@ export default {
   line-height: 20px;
   text-transform: uppercase;
 }
-.question__theme{
+
+.question__theme {
   font-size: 20px;
   font-weight: 400;
   color: #283128;
 }
-.question__number{
+
+.question__number {
   font-size: 20px;
   color: #283128;
 }
-.question__text{
+
+.question__text {
   color: #000;
   font-size: 27px;
   line-height: 30px;
   font-weight: 600;
 }
-.question__animal{
+
+.question__animal {
   z-index: -1;
   position: absolute;
   bottom: 0;
   right: 0;
 }
-.question__animal img{
+
+.question__animal img {
   width: 300px;
 }
-.answers{
+
+.answers {
   padding-top: 70px;
   margin-top: 50px;
   padding-bottom: 50px;
 }
+
 .question__answers input[type=radio] {
   display: none;
 }
+
 .test__answer {
   cursor: pointer;
   padding: 16px 90px;
@@ -243,22 +259,27 @@ export default {
 .question__answers label:hover {
   color: #666;
 }
-.correct_answer{
+
+.correct_answer {
   border: 3px solid var(--Linear, #BEF440);
 }
-.incorrect_answer{
+
+.incorrect_answer {
   border: 4px solid #FF6770;
 }
-.default_answer{
+
+.default_answer {
   border: 4px solid rgba(158, 192, 157, 0.35);
 }
-.question__annotation{
+
+.question__annotation {
   margin-top: 90px;
   font-size: 27px;
   font-weight: 500;
   line-height: 33px;
 }
-.question__btn{
+
+.question__btn {
   padding: 12px 0;
   border-radius: 15px;
   border: 4px solid rgba(158, 192, 157, 0.35);
@@ -271,57 +292,68 @@ export default {
 }
 
 @media (max-width: 1200px) {
-  .question__animal img{
+  .question__animal img {
     width: 250px;
   }
 }
 
 @media (max-width: 992px) {
-  .header{
+  .header {
     padding-top: 10px;
   }
-  .question__animal img{
+
+  .question__animal img {
     width: 150px;
   }
-  .question{
+
+  .question {
     padding-bottom: 120px;
   }
-  .question__block{
+
+  .question__block {
     width: 90px;
     height: 90px;
   }
-  .question__block img{
+
+  .question__block img {
     width: 100%;
   }
-  .question__block span{
+
+  .question__block span {
     margin-top: -6px;
     font-size: 12px;
     line-height: 12px;
   }
-  .question__theme{
+
+  .question__theme {
     font-size: 13px;
     line-height: 13px;
   }
-  .question__number{
+
+  .question__number {
     font-size: 12px;
   }
-  .question__text{
+
+  .question__text {
     font-size: 18px;
     line-height: 20px;
     font-weight: 500;
   }
-  .test__answer{
+
+  .test__answer {
     padding: 20px 90px;
     font-size: 16px;
     line-height: 16px;
   }
-  .question__annotation{
+
+  .question__annotation {
     margin-top: 36px;
     font-size: 16px;
     line-height: 18px;
   }
-  .question__btn{
-      padding: 12px 0;
+
+  .question__btn {
+    padding: 12px 0;
 
     font-size: 14px;
     font-weight: 400;
